@@ -66,28 +66,3 @@ void ResetEventsRegister(SerialEventsRegister_t* SerialEventsReg)
 	SerialEventsReg->Q = 0;
 	_i++;
 }
-
-
-/*
-uint16_t SerialEventsRegister(uint16_t firstEvent, uint16_t secEvent, uint16_t thirdEvent, uint16_t fourthEvent, uint16_t fifthEvent, SerialEventsRegister_t* SerialEventsReg)
-{
-	SerialEventsRegister_t* Reg = SerialEventsReg;
-	uint16_t inputEvent = Reg->_inputEvent;
-	Reg->Events[0] = firstEvent;
-	Reg->Events[1] = secEvent;
-	Reg->Events[2] = thirdEvent;
-	Reg->Events[3] = fourthEvent;
-	Reg->Events[4] = fifthEvent;
-	Reg->K1 = ((inputEvent == firstEvent) | Reg->K1) & (~Reg->K2);
-	Reg->K2 = (Reg->K1 | Reg->K2) & (inputEvent == secEvent) & (~Reg->K3);
-	Reg->K3 = (Reg->K2 | Reg->K3) & (inputEvent == thirdEvent) & (~Reg->K4);
-	Reg->K4 = (Reg->K3 | Reg->K4) & (inputEvent == fourthEvent) & (~Reg->Q);
-	Reg->Q = ((Reg->K4 & (inputEvent == fifthEvent)) | Reg->Q) & (~Reg->Reset);
-	return Reg->Q;
-}
-
-uint16_t SerialEventsCheck(uint16_t inputEvent, SerialEventsRegister_t* SerialEventsReg)
-{
-	SerialEventsReg->_inputEvent = inputEvent;
-	return SerialEventsRegister()
-}*/
